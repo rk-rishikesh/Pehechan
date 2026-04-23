@@ -54,14 +54,14 @@ const HomeTestimonialsCarousel = () => {
   const current = useMemo(() => slides[active], [active]);
 
   return (
-    <section className="relative isolate h-screen min-h-[100dvh] overflow-hidden bg-brand-blush-light/30">
+    <section className="relative isolate overflow-hidden bg-brand-blush-light/30 py-16 md:py-24 lg:h-screen lg:min-h-[100dvh] lg:py-0">
       <GridPattern
         className="absolute inset-0 -z-10 h-full w-full fill-brand-blush/30 stroke-brand-espresso/5 [mask-image:linear-gradient(to_bottom_left,white_50%,transparent_60%)]"
         yOffset={-256}
       />
-      <Container className="h-full">
-        <FadeIn className="h-full">
-          <div className="grid h-full grid-cols-1 items-center gap-10 py-12 lg:grid-cols-12 lg:gap-12">
+      <Container className="lg:h-full">
+        <FadeIn className="lg:h-full">
+          <div className="grid grid-cols-1 items-start gap-10 lg:h-full lg:grid-cols-12 lg:items-center lg:gap-12 lg:py-12">
             <div className="lg:col-span-7">
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-rose/80">
                 Testimonials
@@ -94,7 +94,7 @@ const HomeTestimonialsCarousel = () => {
               </div>
             </div>
 
-            <div className="relative lg:col-span-5">
+            <div className="relative hidden lg:col-span-5 lg:block">
               <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2rem] border border-brand-sage/25 bg-white/50">
                 <Image
                   src={current.image}

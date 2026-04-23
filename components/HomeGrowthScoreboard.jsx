@@ -110,7 +110,7 @@ const HomeGrowthScoreboard = () => (
           </div>
 
           {/* ── RIGHT: donut chart — flush to column end */}
-          <div className="flex w-full justify-end lg:col-span-7 xl:col-span-8">
+          <div className="hidden w-full justify-end md:flex lg:col-span-7 xl:col-span-8">
             <div className="relative ml-auto w-full max-w-[min(100%,28rem)] lg:max-w-[min(100%,36rem)] xl:max-w-[min(100%,40rem)]">
               {/* soft gradient blob behind chart */}
               <div
@@ -180,7 +180,7 @@ const HomeGrowthScoreboard = () => (
                 return (
                   <div
                     key={`seg-${seg.label}`}
-                    className="pointer-events-none absolute z-[2]"
+                    className="pointer-events-none absolute z-[2] hidden md:block"
                     style={{
                       left: `${seg.iconLeftPct}%`,
                       top: `${seg.iconTopPct}%`,
