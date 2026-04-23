@@ -8,7 +8,7 @@ const HomeVisionMission = () => {
         <FadeIn>
           <div className="mx-auto max-w-5xl">
             <p className="text-center font-display text-sm font-semibold tracking-wide text-brand-rose">
-              04. The Strategic 4
+              The Strategic 4
             </p>
             <h2 className="mt-4 text-center font-display text-3xl font-semibold leading-[1.12] tracking-tight text-brand-espresso [text-wrap:balance] md:text-4xl lg:text-5xl">
               The Machinery of Dominance
