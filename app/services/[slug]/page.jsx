@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import Container from "@/components/Container";
 import FadeIn from "@/components/FadeIn";
+import GridPattern from "@/components/GridPattern";
+import ServiceProofCarousel from "@/components/ServiceProofCarousel";
 import { servicePages, serviceSlugs } from "@/constants/servicePages";
 import {
   HiArrowRight,
@@ -20,8 +22,8 @@ export function generateMetadata({ params }) {
   const page = servicePages[params.slug];
   if (!page) return {};
   return {
-    title: `${page.navTitle} | Pehechan`,
-    description: page.heroSubtitle,
+    title: page.metaTitle || `${page.navTitle} | Pehechan`,
+    description: page.metaDescription || page.heroSubtitle,
   };
 }
 
@@ -60,7 +62,7 @@ export default function ServiceDetailPage({ params }) {
               <p className={eyebrowClass}>
                 {page.heroLabel}
               </p>
-              <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.06] tracking-tight text-brand-espresso [text-wrap:balance] sm:text-5xl lg:text-6xl">
+              <h1 className="mt-6 font-display text-4xl font-semibold leading-relaxed text-brand-espresso [text-wrap:balance] sm:text-5xl lg:text-6xl">
                 {page.heroTitle}
               </h1>
               <p className="mt-8 max-w-3xl text-lg leading-relaxed text-brand-espresso/68 md:text-2xl">
@@ -71,12 +73,12 @@ export default function ServiceDetailPage({ params }) {
         </Container>
       </section>
 
-      <section className={sectionPadding}>
+      <section className={`bg-stone-50 ${sectionPadding}`}>
         <Container>
           <FadeIn>
-            <div className="rounded-[2rem] bg-brand-blush-light/55 p-6 shadow-[0_20px_50px_-34px_rgba(61,51,42,0.35)] sm:p-7 lg:p-8">
+            <div className="rounded-[2rem] bg-brand-blush-light/80 p-6 sm:p-7 lg:p-8">
               <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
-                <div className="relative min-h-[25rem] overflow-hidden rounded-[1.5rem] shadow-[0_16px_36px_-26px_rgba(61,51,42,0.28)]">
+                <div className="relative min-h-[25rem] overflow-hidden rounded-[1.5rem]">
                   <Image
                     src={page.heroImage || "/images/services/hero-placeholder.svg"}
                     alt={page.heroTitle}
@@ -87,8 +89,8 @@ export default function ServiceDetailPage({ params }) {
                 </div>
 
                 <article className={`${softCardClass} p-6 sm:p-7`}>
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-brand-blush-light text-brand-rose">
-                    <span className="h-4 w-4 rounded-full border-4 border-brand-rose border-r-transparent border-t-transparent" />
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-brand-blush-light text-lg font-semibold text-brand-rose">
+                    ?
                   </span>
                   <h3 className="mt-10 text-3xl font-semibold leading-tight tracking-tight text-brand-espresso">
                     {page.heroProblemLabel || "The Problem"}
@@ -99,8 +101,8 @@ export default function ServiceDetailPage({ params }) {
                 </article>
 
                 <article className={`${softCardClass} p-6 sm:p-7`}>
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand-blush-light text-brand-rose">
-                    <span className="h-3 w-5 rounded-sm border border-brand-rose bg-white" />
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-brand-blush-light text-lg font-semibold text-brand-rose">
+                    ✓
                   </span>
                   <h3 className="mt-10 text-3xl font-semibold leading-tight tracking-tight text-brand-espresso">
                     {page.heroSolutionLabel || "The Solution"}
@@ -259,38 +261,30 @@ export default function ServiceDetailPage({ params }) {
       </section>
 
       {/* ── SECTION 5 · IMPACT SCOREBOARD ────────────────────────────── */}
-      <section className={`bg-brand-espresso text-brand-blush-light ${sectionPadding}`}>
+      <section className="relative isolate bg-brand-blush-light/30 py-16 text-brand-espresso sm:py-24 md:py-28">
+        <GridPattern
+          className="absolute inset-0 -z-10 h-full w-full fill-brand-blush/30 stroke-brand-espresso/5 [mask-image:linear-gradient(to_bottom_left,white_50%,transparent_60%)]"
+          yOffset={-256}
+        />
         <Container>
           <FadeIn>
-            <div className="max-w-3xl">
+            <div className="max-w-4xl">
               <p className={eyebrowClass}>
                 The Proof
               </p>
-              <h2 className="mt-5 font-display text-3xl font-semibold leading-[1.08] tracking-tight text-white [text-wrap:balance] md:text-4xl lg:text-5xl">
+              <h2 className="mt-5 font-display text-3xl font-semibold leading-[1.08] tracking-tight text-brand-espresso [text-wrap:balance] md:text-4xl lg:text-5xl">
                 Impact Scoreboard
               </h2>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-brand-blush-light/80 md:text-lg">
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-brand-espresso/75 md:text-lg">
                 Receipts over rhetoric. The brands we build compound into
                 category authority.
               </p>
             </div>
           </FadeIn>
 
-          <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-3 lg:gap-7">
-            {page.proof.map((item, index) => (
-              <FadeIn key={item}>
-                <article className="relative flex h-full flex-col rounded-[1.5rem] border border-brand-blush-light/15 bg-brand-espresso-light/35 p-7 md:p-8">
-                  <p className="font-mono text-xs font-semibold tracking-[0.18em] text-brand-rose">
-                    Case 0{index + 1}
-                  </p>
-                  <div className="mt-5 h-px w-10 bg-brand-blush-light/35" />
-                  <p className="mt-5 text-sm leading-relaxed text-brand-blush-light/90 md:text-base">
-                    {item}
-                  </p>
-                </article>
-              </FadeIn>
-            ))}
-          </div>
+          <FadeIn>
+            <ServiceProofCarousel items={page.proof} />
+          </FadeIn>
         </Container>
       </section>
 
@@ -298,35 +292,48 @@ export default function ServiceDetailPage({ params }) {
       <section className={sectionPadding}>
         <Container>
           <FadeIn>
-            <div className="relative overflow-hidden rounded-[2rem] bg-brand-espresso px-8 py-14 text-brand-blush-light shadow-[0_24px_60px_-28px_rgba(61,51,42,0.6)] md:px-14 md:py-20 lg:px-20 lg:py-24">
-              <div
-                className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-brand-rose/30 blur-3xl"
-                aria-hidden
-              />
-              <div
-                className="pointer-events-none absolute -bottom-32 -left-20 h-72 w-72 rounded-full bg-brand-sage/30 blur-3xl"
-                aria-hidden
-              />
-              <div className="relative max-w-3xl">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-blush-light/75">
-                  The Final Call
-                </p>
-                <h2 className="mt-6 font-display text-3xl font-semibold leading-[1.05] tracking-tight text-white [text-wrap:balance] md:text-5xl lg:text-6xl">
-                  {page.ctaTitle}
-                </h2>
-                <p className="mt-7 max-w-2xl text-base leading-relaxed text-brand-blush-light/88 md:text-lg">
-                  {page.ctaBody}
-                </p>
-                <Link
-                  href={page.ctaHref}
-                  className="mt-10 inline-flex items-center gap-2 rounded-full bg-brand-rose px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-brand-rose-hover active:scale-[0.98]"
-                >
-                  {page.ctaLabel}
-                  <HiArrowRight className="h-4 w-4" />
-                </Link>
-                <p className="mt-5 text-sm text-brand-blush-light/72">
-                  {page.ctaSubtext}
-                </p>
+            <div className="overflow-hidden rounded-4xl bg-brand-espresso">
+              <div className="grid min-h-[min(520px,72vh)] grid-cols-1 items-center gap-12 px-6 py-14 sm:px-10 lg:grid-cols-2 lg:gap-8 lg:px-12 lg:py-16 xl:px-16">
+                <div className="flex w-full flex-col items-start justify-center">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-blush-light/75">
+                    The Final Call
+                  </p>
+                  <h2 className="mt-6 font-display text-3xl font-semibold leading-[1.12] tracking-tight text-white [text-wrap:balance] sm:text-4xl lg:text-[2.35rem] xl:text-5xl">
+                    {page.ctaTitle}
+                  </h2>
+                  <p className="mt-6 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
+                    {page.ctaBody}
+                  </p>
+                  <div className="mt-9">
+                    <Link
+                      href={page.ctaHref}
+                      className="inline-flex items-center gap-2 rounded-full bg-lime-400 px-8 py-3.5 text-sm font-semibold text-brand-espresso transition hover:bg-lime-300 active:scale-[0.98]"
+                    >
+                      {page.ctaLabel}
+                      <HiArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                  <p className="mt-5 text-sm text-brand-blush-light/72">
+                    {page.ctaSubtext}
+                  </p>
+                </div>
+
+                <div className="relative flex w-full min-h-[min(88vw,360px)] items-center justify-center overflow-visible pb-4 pt-2 lg:min-h-0 lg:justify-end lg:pb-0 lg:pt-0">
+                  <div className="relative h-[min(78vw,320px)] w-[min(78vw,320px)] shrink-0 sm:h-[min(72vw,380px)] sm:w-[min(72vw,380px)] lg:h-[min(420px,40vw)] lg:w-[min(420px,40vw)] lg:max-w-[420px]">
+                    <div className="flex h-full w-full overflow-hidden rounded-full shadow-[0_28px_64px_-16px_rgba(0,0,0,0.45)] ring-2 ring-white/10">
+                      <div className="relative h-full w-1/2">
+                        <Image
+                          src={page.heroImage || "/images/services/hero-placeholder.svg"}
+                          alt={page.heroTitle}
+                          fill
+                          className="object-cover object-left"
+                          sizes="(max-width: 1024px) 38vw, 210px"
+                        />
+                      </div>
+                      <div className="h-full w-1/2 bg-lime-400" aria-hidden />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </FadeIn>
