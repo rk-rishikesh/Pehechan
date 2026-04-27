@@ -5,70 +5,33 @@ import FooterNavigation from "./FooterNavigation";
 import Logo from "./Logo";
 import Link from "next/link";
 
-const ArrowIcon = (props) => {
-  return (
-    <svg viewBox="0 0 16 6" aria-hidden="true" {...props}>
-      <path
-        fill="currentColor"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M16 3 10 .5v2H0v1h10v2L16 3Z"
-      />
-    </svg>
-  );
-};
-
-const NewsletterForm = () => {
-  return (
-    <form className="max-w-sm">
-      <h2 className="font-display text-sm font-semibold tracking-wider text-brand-espresso">
-        The Pehechan brief
-      </h2>
-      <p className="mt-4 text-sm text-brand-espresso/60">
-        Short notes on growth, brand authority, and how founders move from
-        presence to standard — no noise, no filler.
-      </p>
-      <div className="relative mt-6">
-        <input
-          type="email"
-          placeholder="Your email"
-          autoComplete="email"
-          aria-label="Your email for the Pehechan brief"
-          className="block w-full rounded-2xl border border-brand-sage/40 bg-transparent py-4 pl-6 pr-20 text-base/6 text-brand-espresso ring-4 ring-transparent transition placeholder:text-brand-espresso/40 focus:border-brand-rose focus:outline-none focus:ring-brand-rose/10"
-        />
-        <div className="absolute inset-y-1 right-1 flex justify-end">
-          <button
-            type="submit"
-            aria-label="Subscribe to the Pehechan brief"
-            className="flex aspect-square h-full items-center justify-center rounded-xl bg-brand-rose text-white transition hover:bg-brand-rose-hover"
-          >
-            <ArrowIcon className="w-4" />
-          </button>
-        </div>
-      </div>
-    </form>
-  );
-};
-
 const Footer = () => {
   return (
     <Container as="footer" className="mt-24 w-full sm:mt-32 lg:mt-40">
       <FadeIn>
-        <div className="grid grid-cols-1 gap-x-8 gap-y-16 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-y-14">
           <FooterNavigation />
-          <div className="flex lg:justify-end">
-            <NewsletterForm />
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.14em] text-brand-rose/85">
+              The Closing Statement
+            </p>
+            <p className="mt-4 font-display text-3xl font-semibold leading-tight tracking-tight text-brand-espresso sm:text-4xl">
+              We don&apos;t build brands.
+              <br />
+              We build names the world remembers.
+            </p>
           </div>
         </div>
-        <div className="mb-20 mt-24 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-brand-espresso/10 pt-12">
+        <div className="mb-20 mt-20 flex flex-wrap items-end justify-between gap-x-6 gap-y-4 border-t border-brand-espresso/10 pt-10">
           <Link href={"/"} aria-label="Home">
             <Logo className="h-8" fillOnHover>
               Pehechan
             </Logo>
           </Link>
-          <p className="text-sm text-brand-espresso/60">
-            © Pehechan {new Date().getFullYear()}
-          </p>
+          <div className="space-y-1 text-right text-sm text-brand-espresso/60">
+            <p>© 2026 Pehechan. All rights reserved.</p>
+            <p>Built for founders who choose dominance over existence.</p>
+          </div>
         </div>
       </FadeIn>
     </Container>
