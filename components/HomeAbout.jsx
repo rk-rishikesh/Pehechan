@@ -1,18 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import Container from "./Container";
-import img1 from "@/images/team/angela-fisher.jpeg";
-import img2 from "@/images/team/benjamin-russel.jpeg";
-import img3 from "@/images/team/blake-reid.jpeg";
-import img4 from "@/images/team/chelsea-hagon.jpeg";
-import img5 from "@/images/team/dries-vincent.jpeg";
 
 const portraits = [
-  { src: img1, alt: "Portrait of Angela Fisher" },
-  { src: img2, alt: "Portrait of Benjamin Russel" },
-  { src: img3, alt: "Portrait of Blake Reid" },
-  { src: img4, alt: "Portrait of Chelsea Hagon" },
-  { src: img5, alt: "Portrait of Dries Vincent" },
+  { src: "/hero/1.png", alt: "Portrait 1" },
+  { src: "/hero/2.png", alt: "Portrait 2" },
+  { src: "/hero/3.png", alt: "Portrait 3" },
+  { src: "/hero/4.png", alt: "Portrait 4" },
+  { src: "/hero/5.png", alt: "Portrait 5" },
 ];
 
 const HomeAbout = () => {

@@ -46,8 +46,8 @@ const HomeHero = () => {
           <div className="relative w-full max-w-2xl">
             <div className="relative mx-auto aspect-square w-full max-w-lg overflow-hidden rounded-full shadow-[0_24px_60px_-20px_rgba(84,70,58,0.25)] ring-4 ring-white/90 sm:max-w-xl">
               <Image
-                src="/hero-split.png"
-                alt="Pehechan brand visual representing growth and momentum"
+                src="/hero/main.png"
+                alt="Pehechero-splithan brand visual representing growth and momentum"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 92vw, min(560px, 42vw)"

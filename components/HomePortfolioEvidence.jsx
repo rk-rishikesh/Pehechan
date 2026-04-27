@@ -10,8 +10,7 @@ const evidenceItems = [
   {
     name: "Active Life",
     proof: "We turned a clinic into a community leader.",
-    image:
-      "https://picsum.photos/seed/active-life-med/900/700",
+    image: "/portfolio/Active Life.png",
   },
   {
     name: "Bhansali Buildcon",
@@ -22,15 +21,13 @@ const evidenceItems = [
   {
     name: "Anandam",
     proof: "We built the future of care through tech and soul.",
-    image:
-      "https://picsum.photos/seed/anandam-care-tech/900/700",
+    image: "/portfolio/Anandam.png",
   },
   {
     name: "Gowell Physiotherapy",
     proof:
       "We turned physical recovery into a high-performance standard.",
-    image:
-      "https://picsum.photos/seed/gowell-physio-performance/900/700",
+    image: "/portfolio/Gowell Physiotherapy.png",
   },
 ];
 

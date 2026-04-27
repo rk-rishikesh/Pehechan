@@ -32,16 +32,15 @@ const ContactSection = () => {
           <div className="relative flex w-full min-h-[min(88vw,360px)] items-center justify-center overflow-visible pb-4 pt-2 lg:min-h-0 lg:justify-end lg:pb-0 lg:pt-0">
             <div className="relative h-[min(78vw,320px)] w-[min(78vw,320px)] shrink-0 sm:h-[min(72vw,380px)] sm:w-[min(72vw,380px)] lg:h-[min(420px,40vw)] lg:w-[min(420px,40vw)] lg:max-w-[420px]">
               <div className="flex h-full w-full overflow-hidden rounded-full shadow-[0_28px_64px_-16px_rgba(0,0,0,0.45)] ring-2 ring-white/10">
-                <div className="relative h-full w-1/2">
+                <div className="relative h-full w-full">
                   <Image
-                    src="/contact-banner.png"
+                    src="/hero/about.png"
                     alt="Pehechan contact visual"
                     fill
                     className="object-cover object-left"
-                    sizes="(max-width: 1024px) 38vw, 210px"
+                    sizes="(max-width: 1024px) 78vw, 420px"
                   />
                 </div>
-                <div className="h-full w-1/2 bg-lime-400" aria-hidden />
               </div>
             </div>
           </div>

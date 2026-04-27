@@ -4,7 +4,7 @@ import SectionIntro from "./SectionIntro";
 import Container from "./Container";
 import FadeIn from "./FadeIn";
 import StylizedImage from "./StylizedImage";
-import imageLaptop from "../images/laptop.jpg";
+const imageLaptop = "/hero/services.png";
 import List from "./List";
 import {
   HiArrowRight,
@@ -64,6 +64,8 @@ const Services = () => {
             <FadeIn className="w-[33.75rem] flex-none lg:w-[45rem]">
               <StylizedImage
                 src={imageLaptop}
+                width={655}
+                height={680}
                 sizes="(min-width: 1024px) 41rem, 31rem"
                 className="justify-center lg:justify-end"
               />
