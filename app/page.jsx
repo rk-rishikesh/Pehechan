@@ -1,10 +1,9 @@
 import Clients from "@/components/Clients";
-import ContactSection from "@/components/ContactSection";
 import HomeAbout from "@/components/HomeAbout";
 import HomeGrowthScoreboard from "@/components/HomeGrowthScoreboard";
 import HomeHero from "@/components/HomeHero";
 import HomePortfolioEvidence from "@/components/HomePortfolioEvidence";
-import HomeTestimonialsCarousel from "@/components/HomeTestimonialsCarousel";
+// import HomeTestimonialsCarousel from "@/components/HomeTestimonialsCarousel";
 import HomeVisionMission from "@/components/HomeVisionMission";
 import Services from "@/components/Services";
 
@@ -16,12 +15,11 @@ export default function Home() {
         <Clients />
       </div>
       <HomeAbout />
-      <HomeTestimonialsCarousel />
+      {/* <HomeTestimonialsCarousel /> */}
       <Services />
       <HomeVisionMission />
       <HomePortfolioEvidence />
       <HomeGrowthScoreboard />
-      <ContactSection />
     </main>
   );
 }

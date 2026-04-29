@@ -4,6 +4,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import { motion, MotionConfig, useReducedMotion } from "framer-motion";
 import Container from "./Container";
 import Link from "next/link";
+import Image from "next/image";
 import Logo from "./Logo";
 import { HiMenuAlt4 } from "react-icons/hi";
 import { IoMdClose } from "react-icons/io";
@@ -26,7 +27,14 @@ const Header = ({
     <Container>
       <div className="flex items-center justify-between">
         {/* Logo */}
-        <Link href={"/"} aria-label="Home">
+        <Link href={"/"} aria-label="Home" className="flex items-center gap-2.5">
+          <Image
+            src="/logos/key.png"
+            alt="Pehechan key mark"
+            width={34}
+            height={34}
+            className="rounded-lg border border-brand-sage/35 bg-white/90"
+          />
           <Logo invert={invert}>Pehechan</Logo>
         </Link>
         <div className="flex items-center gap-x-8">
@@ -85,12 +93,14 @@ const Navigation = () => {
   return (
     <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
       <NavigationRow>
-        <NavigationItem href="/work">Our Work</NavigationItem>
-        <NavigationItem href="/about">About Us</NavigationItem>
+        <NavigationItem href="/services/consulting">Consulting</NavigationItem>
+        <NavigationItem href="/services/digital-marketing">
+          Digital Marketing
+        </NavigationItem>
       </NavigationRow>
       <NavigationRow>
-        <NavigationItem href="/process">Our Process</NavigationItem>
-        <NavigationItem href="/blog">Blog</NavigationItem>
+        <NavigationItem href="/services/events">Events</NavigationItem>
+        <NavigationItem href="/services/cinema">Photo &amp; Video</NavigationItem>
       </NavigationRow>
     </nav>
   );

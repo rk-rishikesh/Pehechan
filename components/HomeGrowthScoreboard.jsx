@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
 import Container from "./Container";
 import FadeIn from "./FadeIn";
@@ -156,6 +157,18 @@ const HomeGrowthScoreboard = () => (
                   fillOpacity="0.94"
                 />
               </svg>
+
+              <div className="pointer-events-none absolute left-1/2 top-1/2 z-[3] -translate-x-1/2 -translate-y-1/2">
+                <div className="overflow-hidden rounded-xl border border-brand-sage/25 bg-white/90 shadow-[0_8px_24px_-10px_rgba(61,51,42,0.35)]">
+                  <Image
+                    src="/logos/key.png"
+                    alt="Pehechan logo mark"
+                    width={44}
+                    height={44}
+                    className="rounded-lg"
+                  />
+                </div>
+              </div>
 
               {/* Icon on rim; tooltip placement per segment (right / below / left of icon) */}
               {SEGS.map((seg, i) => {

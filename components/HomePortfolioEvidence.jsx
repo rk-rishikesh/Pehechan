@@ -104,13 +104,17 @@ const HomePortfolioEvidence = () => {
                     </div>
                     <div className="mt-8 h-px w-full bg-brand-blush-light/35" />
                   </div>
-                  <div className="relative min-h-[18rem] overflow-hidden md:min-h-[30rem]">
+                  <div className="relative h-full min-h-[22rem] overflow-hidden md:min-h-[34rem]">
                     <Image
                       src={item.image}
                       alt={`${item.name} portfolio case`}
                       fill
                       sizes="(max-width: 768px) 100vw, 62vw"
-                      className="object-cover"
+                      className="h-full w-full object-cover object-center"
+                    />
+                    <div
+                      className="pointer-events-none absolute inset-y-0 left-0 w-28 bg-gradient-to-r from-brand-espresso via-brand-espresso/45 to-transparent md:w-36"
+                      aria-hidden
                     />
                   </div>
                 </article>

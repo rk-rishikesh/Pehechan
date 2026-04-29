@@ -49,7 +49,7 @@ const Services = () => {
   return (
     <>
       <SectionIntro
-        eyebrow="The Arsenal"
+        eyebrow={<span className="text-brand-rose">The Arsenal</span>}
         title="The 4 Core Pillars: What We Do"
         className="mt-24 sm:mt-32 lg:mt-40"
       >
