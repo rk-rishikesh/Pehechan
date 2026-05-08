@@ -13,10 +13,10 @@ const clients = [
 
 const Clients = () => {
   return (
-    <div className="rounded-4xl mx-4 bg-brand-espresso py-20">
+    <div className="rounded-4xl mx-4 bg-brand-rose/20 py-20">
       <Container>
         <FadeIn className="flex items-center gap-x-8">
-          <h2 className="text-center font-display text-sm font-semibold tracking-wider text-white sm:text-left">
+          <h2 className="text-center font-display text-sm font-semibold tracking-wider text-brand-rose sm:text-left">
             We have worked with hundreds of amazing people
           </h2>
           <div className="h-px flex-auto bg-brand-sage/40" />

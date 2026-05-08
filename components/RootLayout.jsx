@@ -1,217 +1,90 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { useEffect, useId, useRef, useState } from "react";
-import { motion, MotionConfig, useReducedMotion } from "framer-motion";
 import Container from "./Container";
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "./Logo";
-import { HiMenuAlt4 } from "react-icons/hi";
-import { IoMdClose } from "react-icons/io";
-import Button from "./Button";
 import clsx from "clsx";
-import Offices from "./Offices";
-import SocialMedia from "./SocialMedia";
 import Footer from "./Footer";
 
-const Header = ({
-  panelId,
-  invert = false,
-  icon: Icon,
-  expanded,
-  onToggle,
-  toggleRef,
-}) => {
-  // Container
+const Header = ({ invert = false }) => {
   return (
     <Container>
-      <div className="flex items-center justify-between">
-        {/* Logo */}
-        <Link href={"/"} aria-label="Home" className="flex items-center gap-2.5">
-          <Image
-            src="/logos/key.png"
-            alt="Pehechan key mark"
-            width={34}
-            height={34}
-            className="rounded-lg border border-brand-sage/35 bg-white/90"
-          />
-          <Logo invert={invert}>Pehechan</Logo>
+      <div className="flex flex-wrap items-center justify-between gap-4 pt-4">
+        <Link href="/" aria-label="Home" className="flex items-center gap-2.5">
+          <Image src="/PehechanLogo.svg" alt="Pehechan" width={230} height={230} />
         </Link>
-        <div className="flex items-center gap-x-8">
-          <Button href={"/contact"} invert={invert}>
-            Contact us
-          </Button>
-          <button
-            ref={toggleRef}
-            type="button"
-            onClick={onToggle}
-            aria-expanded={expanded.toString()}
-            aria-controls={panelId}
+
+        <nav className="flex flex-wrap items-center gap-x-7 gap-y-2 font-display">
+          <Link
+            href="/#about"
             className={clsx(
-              "group -m-2.5 rounded-full p-2.5 transition",
-              invert ? "hover:bg-white/10" : "hover:bg-brand-espresso/10"
+              "text-[0.8rem] font-medium uppercase tracking-[0.16em] transition",
+              invert
+                ? "text-white hover:text-brand-blush-light"
+                : "text-brand-espresso hover:text-brand-espresso-light"
             )}
-            aria-label="Toggle navigation"
           >
-            <Icon
-              className={clsx(
-                "h-6 w-6",
-                invert
-                  ? "fill-white group-hover:fill-brand-blush-light"
-                  : "fill-brand-espresso group-hover:fill-brand-espresso-light"
-              )}
-            />
-          </button>
-        </div>
+            About us
+          </Link>
+          <Link
+            href="/#the-arsenal"
+            className={clsx(
+              "text-[0.8rem] font-medium uppercase tracking-[0.16em] transition",
+              invert
+                ? "text-white hover:text-brand-blush-light"
+                : "text-brand-espresso hover:text-brand-espresso-light"
+            )}
+          >
+            Services
+          </Link>
+          <Link
+            href="/#portfolio"
+            className={clsx(
+              "text-[0.8rem] font-medium uppercase tracking-[0.16em] transition",
+              invert
+                ? "text-white hover:text-brand-blush-light"
+                : "text-brand-espresso hover:text-brand-espresso-light"
+            )}
+          >
+            Case studies
+          </Link>
+          <Link
+            href="https://calendar.app.google/EUTGdxUZkbBtd7Ct6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={clsx(
+              "text-[0.8rem] font-medium uppercase tracking-[0.16em] transition",
+              invert
+                ? "text-white hover:text-brand-blush-light"
+                : "text-brand-espresso hover:text-brand-espresso-light"
+            )}
+          >
+            Contact us
+          </Link>
+        </nav>
       </div>
     </Container>
   );
 };
-const NavigationRow = ({ children }) => {
-  return (
-    <div className="even:mt-px sm:bg-brand-espresso">
-      <Container>
-        <div className="grid grid-cols-1 sm:grid-cols-2">{children}</div>
-      </Container>
-    </div>
-  );
-};
-
-const NavigationItem = ({ href, children }) => {
-  return (
-    <Link
-      href={href}
-      className="group relative isolate -mx-6 bg-brand-espresso px-6 py-10 even:mt-px sm:mx-0 sm:px-0 sm:py-16 sm:odd:pr-16 sm:even:mt-0 sm:even:border-l sm:even:border-brand-sage/30 sm:even:pl-16"
-    >
-      {children}
-      <span className="absolute inset-y-0 -z-10 w-screen bg-brand-espresso-dark opacity-0 transition group-odd:right-0 group-even:left-0 group-hover:opacity-100" />
-    </Link>
-  );
-};
-
-const Navigation = () => {
-  return (
-    <nav className="mt-px font-display text-5xl font-medium tracking-tight text-white">
-      <NavigationRow>
-        <NavigationItem href="/services/consulting">Consulting</NavigationItem>
-        <NavigationItem href="/services/digital-marketing">
-          Digital Marketing
-        </NavigationItem>
-      </NavigationRow>
-      <NavigationRow>
-        <NavigationItem href="/services/events">Events</NavigationItem>
-        <NavigationItem href="/services/cinema">Photo &amp; Video</NavigationItem>
-      </NavigationRow>
-    </nav>
-  );
-};
 
 const RootLayoutInner = ({ children }) => {
-  const panelId = useId();
-  const [expanded, setExpanded] = useState(false);
-  const openRef = useRef();
-  const closeRef = useRef();
-  const navRef = useRef();
-  const shouldReduceMotion = useReducedMotion();
-  useEffect(() => {
-    function onClick(event) {
-      if (event.target.closest("a")?.href === window.location.href) {
-        setExpanded(false);
-      }
-    }
-    window.addEventListener("click", onClick);
-
-    return () => {
-      window.removeEventListener("click", onClick);
-    };
-  }, []);
   return (
-    <MotionConfig transition={shouldReduceMotion ? { duration: 0 } : undefined}>
+    <>
       <header>
-        <div
-          className="absolute left-0 right-0 top-2 z-40 pt-8"
-          aria-hidden={expanded ? "true" : undefined}
-          inert={expanded ? "" : undefined}
-        >
-          {/* Header */}
-          <Header
-            panelId={panelId}
-            icon={HiMenuAlt4}
-            toggleRef={openRef}
-            expanded={expanded}
-            onToggle={() => {
-              setExpanded((expanded) => !expanded);
-              window.setTimeout(() =>
-                closeRef.current?.focus({ preventScroll: true })
-              );
-            }}
-          />
+        <div className="absolute left-0 right-0 top-2 z-40 pt-8">
+          <Header />
         </div>
-        <motion.div
-          layout
-          id={panelId}
-          style={{ height: expanded ? "auto" : "0.5rem" }}
-          className="relative z-50 overflow-hidden bg-brand-espresso pt-2"
-          aria-hidden={expanded ? undefined : "true"}
-          inert={expanded ? undefined : ""}
-        >
-          <motion.div layout className="bg-brand-sage/20">
-            <div ref={navRef} className="bg-brand-espresso pb-16 pt-8">
-              <Header
-                invert
-                panelId={panelId}
-                icon={IoMdClose}
-                toggleRef={closeRef}
-                expanded={expanded}
-                onToggle={() => {
-                  setExpanded((expanded) => !expanded);
-                  window.setTimeout(() =>
-                    openRef.current?.focus({ preventScroll: true })
-                  );
-                }}
-              />
-            </div>
-            {/* Navigation */}
-            <Navigation />
-            <div className="relative bg-brand-espresso before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-brand-sage/30">
-              <Container>
-                <div className="grid grid-cols-1 gap-y-10 pb-16 pt-10 sm:grid-cols-2 sm:pt-16">
-                  <div>
-                    <h2 className="font-display text-base font-semibold text-white">
-                      Our offices
-                    </h2>
-                    <Offices
-                      invert
-                      className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2"
-                    />
-                  </div>
-                  <div className="sm:border-l sm:border-brand-sage/30 sm:pl-16">
-                    <h2 className="font-display text-base font-semibold text-white">
-                      Follow us
-                    </h2>
-                    <SocialMedia className="mt-6" invert />
-                  </div>
-                </div>
-              </Container>
-            </div>
-          </motion.div>
-        </motion.div>
       </header>
-      <motion.div
-        layout
+      <div
         style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }}
         className="relative flex flex-auto overflow-hidden bg-white pt-14"
       >
-        <motion.div
-          layout
-          className="relative isolate flex w-full flex-col pt-9"
-        >
+        <div className="relative isolate flex w-full flex-col pt-9">
           <main className="w-full flex-auto">{children}</main>
-          {/* Footer */}
           <Footer />
-        </motion.div>
-      </motion.div>
-    </MotionConfig>
+        </div>
+      </div>
+    </>
   );
 };
 

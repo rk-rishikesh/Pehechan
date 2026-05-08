@@ -5,6 +5,7 @@ import HomeHero from "@/components/HomeHero";
 import HomePortfolioEvidence from "@/components/HomePortfolioEvidence";
 // import HomeTestimonialsCarousel from "@/components/HomeTestimonialsCarousel";
 import HomeVisionMission from "@/components/HomeVisionMission";
+import ContactSection from "@/components/ContactSection";
 import Services from "@/components/Services";
 
 export default function Home() {
@@ -14,12 +15,19 @@ export default function Home() {
       <div className="mt-12 sm:mt-16 lg:mt-20">
         <Clients />
       </div>
-      <HomeAbout />
+      <section id="about">
+        <HomeAbout />
+      </section>
       {/* <HomeTestimonialsCarousel /> */}
-      <Services />
+      <section id="the-arsenal">
+        <Services />
+      </section>
       <HomeVisionMission />
-      <HomePortfolioEvidence />
+      <section id="portfolio">
+        <HomePortfolioEvidence />
+      </section>
       <HomeGrowthScoreboard />
+      <ContactSection />
     </main>
   );
 }

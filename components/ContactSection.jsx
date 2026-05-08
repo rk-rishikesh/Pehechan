@@ -21,7 +21,9 @@ const ContactSection = () => {
             </p>
             <div className="mt-9">
               <Link
-                href="/contact"
+                href="https://calendar.app.google/EUTGdxUZkbBtd7Ct6"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex rounded-full bg-lime-400 px-8 py-3.5 text-sm font-semibold text-brand-espresso transition hover:bg-lime-300 active:scale-[0.98]"
               >
                 Get in touch

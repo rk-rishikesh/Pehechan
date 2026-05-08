@@ -33,7 +33,9 @@ const HomeHero = () => {
                 ACTIVATE YOUR BRAND
               </Link>
               <Link
-                href="/contact"
+                href="https://calendar.app.google/EUTGdxUZkbBtd7Ct6"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex rounded-full border border-brand-espresso px-7 py-3 text-xs font-semibold uppercase tracking-wide text-brand-espresso transition hover:bg-brand-espresso/5 active:scale-[0.98]"
               >
                 Get in touch
